@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      h1:hover {
+        cursor: pointer;
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <% expenseManager.forEach(element => { %>
+      <h1 onclick="redirectToExpensePage('<%= element.id %>')">
+        <%= element.name %>
+      </h1>
+      <li>id: <%= element.id %></li>
+      <li>cost: <%= element.cost %></li>
+      <li>createdAt: <%= element.createdAt %></li>
+      <% }); %>
+    </ul>
+
+    <script>
+      function redirectToExpensePage(expenseId) {
+        window.location.href = "/expenses/" + expenseId;
+      }
+    </script>
+  </body>
+</html>
